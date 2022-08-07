@@ -5,6 +5,7 @@ body{
     font-size: 27px;
     text-align: center;
     margin-top: 50px;
+    animation: openPageHeader  0.5s 1 ease-in-out;
 }
 
 .signin{
@@ -15,6 +16,7 @@ body{
     margin-right: 50%; 
     right: -500px;
     cursor: pointer;
+    animation: openPageSignin  0.5s 1 ease-in-out;
 }
 .signinBl{
     position: absolute;
@@ -68,13 +70,13 @@ body{
 
 .cont{
     width: 1000px; 
-    margin-left: 50%;
-    margin-top: 30px;
+    margin: 30px 0px 50px 50%;
     position: relative;
     left: -513px;
     display: grid;
     grid-template-columns: 320px 320px 320px;
     column-gap: 35px;
+    animation: openPage  0.5s 1 ease-in-out;
 }
 .curse{
     margin-top: 15px;
@@ -82,6 +84,9 @@ body{
     height: 200px;
     border: 2px solid #DBDBDB;
     border-radius: 10px;
+}
+.curseId{
+    display: none;
 }
 .curseText{
     text-align: center;
@@ -118,16 +123,48 @@ body{
     font-size: 18px;
     padding: 0px 20px;
     height: 150px;
+    max-height: 150px;
+    border: 0px solid black;
+    overflow: hidden;
 }
 .newCurseText:focus{
     outline: none;
 }
 .newCurseDate{
-    width: 300px;
+    width: 180px;
     text-align: center;
     font-size: 17px;
     border: 0px solid white;
+    margin-right: 20px;
 }
 .newCurseDate:focus{
     outline: none;
+}
+.newCurseSave{
+    margin-left: 10px;
+    border: 1px solid black;
+    border-radius: 4px;
+    height: 30px;
+    width: 100px;
+    text-align: center;
+    cursor: pointer;
+}
+
+@keyframes openPage {
+    from{
+        transform: scale(0.98);
+        opacity: 0;
+    }
+    to{
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+@keyframes openPageHeader {
+    from{ opacity: 0 }
+    to{ opacity: 1 }
+}
+@keyframes openPageSignin {
+    from{ opacity: 0 }
+    to{ opacity: 0.2 }
 }

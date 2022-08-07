@@ -27,6 +27,7 @@
         <div class="cont">
             <% for(let i=0; i<curses.length;i++) {%>
                 <div class="curse">
+                    <div class="curseId"><%=curses[i]._id %></div>
                     <div class="curseText"><%=curses[i].text %></div>
                     <div class="curseDate"><%=curses[i].date %></div>
                 </div>
@@ -35,8 +36,14 @@
                 for(let i = 0; i < 3 - curses.length % 3; i++){%>
                     <div class="newCurse">
                         <div class="newCurseChange">
-                            <div class="newCurseText" contenteditable>saklfjhd</div>
-                            <input class="newCurseDate" type='date'/>
+                            <div class="newCurseText" contenteditable="true"></div>
+                            <div class="d-flex">
+                                <div class="newCurseSave d-flex justify-content-center">
+                                    <span class="newCurseSaveSp">Сохранить</span>
+                                    <div style='transform: scale(0.7); display: none'><div class="spinner-border" role="status"></div></div>
+                                </div>
+                                <input class="newCurseDate" type='date'/>
+                            </div>
                         </div>
                         <img src="/imgs/plus.png" alt="plus" class="cursePlus">
                     </div>

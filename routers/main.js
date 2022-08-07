@@ -1,4 +1,5 @@
 const User = require('../mongodb/index.js').User
+const Curse = require('../mongodb/index.js').Curse
 const cache = require('../cache/index.js')
 
 async function main(req, res){
@@ -26,15 +27,9 @@ async function main(req, res){
             }
         }
     }
+    const curses = await Curse.find({})
     res.render('index', {
-        curses: [
-            {text: 'Unreal Engine для архитектурной визуализации', date: '09.08.2022'},
-            {text: 'Unreal Engine для архитектурной визуализации', date: '09.08.2022'},
-            {text: 'Unreal Engine для архитектурной визуализации', date: '09.08.2022'},
-            {text: 'Unreal Engine для архитектурной визуализации', date: '09.08.2022'},
-            {text: 'Unreal Engine для архитектурной визуализации', date: '09.08.2022'},
-            {text: 'Unreal Engine для архитектурной визуализации', date: '09.08.2022'},
-        ],
+        curses: curses,
         admin: adminIs
     })
 
