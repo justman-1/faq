@@ -1,5 +1,5 @@
 const mongoose = require("mongoose")
-const hash = require('md5')
+const base64 = require('base-64')
 
 let mongo = require('./mongo')
 let connectToMongoDb = async () => {
@@ -32,7 +32,7 @@ function checkAdmin(){
     User.findOne({login: 'admin'}, (err, data)=>{
         if(err) return console.log(err)
         if(!data || data == {}){
-            User.create({login: 'admin', password: hash(process.env.ADMIN_PASSWORD)}, (err, res)=>{
+            User.create({login: 'admin', password: base64.encode(password)}, (err, res)=>{
                 console.log('admin account was created.')
             })
         }

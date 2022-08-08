@@ -1,0 +1,95 @@
+.noPermission{
+    font-size: 30px;
+    margin-top: 50px;
+    text-align: center;
+}
+.goback{
+    width: 40px;
+    opacity: 0.2;
+    position: absolute;
+    top: 10px;
+    margin-left: 50%; 
+    left: -400px;
+    cursor: pointer;
+    animation: openPageSignin  0.5s 1 ease-in-out;
+}
+
+.addAdmin{
+    margin-top: 100px;
+    width: 780px;
+    height: 70px;
+    border: 1px solid #DBDBDB;
+    border-radius: 7px;
+    position: relative;
+    margin-left: 50%;
+    left: -390px;
+    cursor: pointer;
+}
+.addAdminImg{
+    width: 40px;
+    opacity: 0.25;
+    margin: 13px 375px;
+    cursor: pointer;
+}
+.adminUserBlNewFilters{
+    width: 100%;
+    border-bottom: 1px solid #DBDBDB;
+    border-right: 1px solid #DBDBDB;
+    border-left: 1px solid #DBDBDB;
+    height: 50px;
+    display: none;
+}
+.adminUserBlFiltersNewLogin{
+    background-color: #F5F5F5;
+    padding: 4px 0px;
+    height: 100%;
+    text-align: center;
+    width: 259px;
+    border-right: 1px solid #DBDBDB;
+    border-bottom: 0px solid #DBDBDB;
+    border-top: 0px solid #DBDBDB;
+    border-left: 0px solid #DBDBDB;
+    outline: none;
+    resize: none;
+}
+.adminUserBlFiltersNewLogin:last-child{
+    border-right: 0px solid #DBDBDB;
+}
+.createAdminBut{
+    margin-top: 5px;
+}
+
+.adminCont{
+    width: 780px; 
+    margin: 20px 0px 50px 50%;
+    position: relative;
+    left: -390px;
+    animation: openPage  0.5s 1 ease-in-out;
+    border-top: 1px solid #DBDBDB;
+}
+.adminUserBlFilters{
+    width: 100%;
+    border-bottom: 1px solid #DBDBDB;
+    border-right: 1px solid #DBDBDB;
+    border-left: 1px solid #DBDBDB;
+    display: flex;
+}
+.adminUserBlFiltersLogin{
+    padding: 4px 0px;
+    height: 100%;
+    text-align: center;
+    width: 259px;
+    border-right: 1px solid #DBDBDB;
+    font-weight: 600;
+}
+.adminUserBlFiltersLogin:last-child{
+    border-right: 0px solid #DBDBDB;
+}
+.adminUserBl{
+    width: 100%;
+    height: 70px;
+    border-bottom: 1px solid #DBDBDB;
+    border-right: 1px solid #DBDBDB;
+    border-left: 1px solid #DBDBDB;
+    display: flex;
+}
