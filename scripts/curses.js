@@ -54,7 +54,7 @@ $('.newCurse').on('click', (e)=>{
         $(e.target.children[0]).css({
             'display': 'block'
         })
-        $(e.target.parentNode.children[2]).css({
+        $(e.target.children[2]).css({
             'display': 'block'
         })
         $(e.target).attr('class', 'curse')
@@ -205,7 +205,8 @@ $('.curseChange').click(e=>{
     }
     $(e.target.parentNode.parentNode.children[5].children[0]).css({ 'display': 'block' })
     $(e.target.parentNode.parentNode.children[5].children[1]).css({ 'display': 'block' })
-    let text = $(e.target.parentNode.parentNode.children[5].children[0].children)[0].textContent
+    let text = $(e.target.parentNode.parentNode.children)[1].innerHTML
+    console.log(text)
     let date = $(e.target.parentNode.parentNode.children[5].children[0].children[1].children)[1].value
     $(e.target.parentNode.parentNode.children[5].children[0].children)[0].innerHTML = text
     $(e.target.parentNode.parentNode.children[5].children[0].children[1].children)[1].value = date

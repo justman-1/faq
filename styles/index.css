@@ -192,7 +192,7 @@ body{
     font-size: 11px;
     position: relative;
     left: 140px;
-    top: -212px;
+    top: -202px;
     height: 0px;
     color: #6EE34F;
     display: none;
@@ -246,7 +246,7 @@ body{
 .newCurseClose{
     position: relative;
     width: 14px;
-    top: -210px;
+    top: -205px;
     left: 5px;
     cursor: pointer;
 }

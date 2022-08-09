@@ -4,7 +4,6 @@ const base64 = require('base-64')
 const {uid} = require('uid')
 const jwt = require('jsonwebtoken')
 
-
 async function changeAdmin(req, res){
     const id = req.body.id
     const login = req.body.login

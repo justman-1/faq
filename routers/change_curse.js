@@ -6,7 +6,8 @@ async function saveCurse(req, res){
     let text = req.body.text
     const date = req.body.date1
     const id = req.body.id
-    text = text.replace(/</g, ' <').replace(/>/g, '> ')
+    const reg = new RegExp('</div>', 'g')
+    text = text.replace(/<div>/g, ' <div> ').replace(reg, ' </div> ')
     console.log(text)
     text = text.replace(/(http:\/\/[^\s]+)/g, "<a href='$1'>$1</a>").replace(/(https:\/\/[^\s]+)/g, "<a href='$1' target='_blank'>$1</a>")
     console.log(text)
