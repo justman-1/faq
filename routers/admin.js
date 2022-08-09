@@ -1,16 +1,22 @@
-const User = require('../mongodb/index.js').User
-const Curse = require('../mongodb/index.js').Curse
-const cache = require('../cache/index.js')
 const jwt = require('jsonwebtoken')
+const User = require('../mongodb/index.js').User
+const base64 = require('base-64')
 
 function adminBreak(res){
     res.render('admin', {
         permission: false
     })
 }
-function adminNext(res){
+async function adminNext(res){
+    const admins = await User.find({}, ['login', 'password', '_id'])
+    admins.forEach(e => e.password = base64.decode(e.password))
+    let result = []
+    for(let i=admins.length - 1;i>-1;i--){
+        result.push(admins[i])
+    }
     res.render('admin', {
-        permission: true
+        permission: true,
+        admins: result
     })
 }
 

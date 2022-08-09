@@ -11,7 +11,7 @@
         <div class="mainHead">Ближайшие курсы</div>
         <img class="signin" src="/imgs/signin.png">
         <% if(superAdmin){%>
-        
+            <a href="/admin"><img class="admin" src="/imgs/admin.png"></a>
         <%}%>
         <form class="signinBl">
             <img src="/imgs/cross.png" alt="Закрыть окно" class="signinBlCross">
@@ -22,7 +22,9 @@
             <div class="signinBlErr"></div>
             <%}else{%>
             <div class="signout">Выйти</div>
-            <div class="signinChangePassword">Изменить пароль</div>
+            <%} %>
+            <% if(superAdmin){%>
+                <div class="signinChangePassword">Изменить пароль</div>
             <%} %>
         </form>
         <form class="changePassword">
@@ -45,6 +47,20 @@
                     <div class="curseLoading justify-content-center">
                         <div class="spinner-border" role="status"></div>
                     </div>
+                    <div class="curseNewElems">
+                        <div class="newCurseChange">
+                            <div class="newCurseText" s="s" contenteditable="true"><%=curses[i].text %></div>
+                            <div class="d-flex" n="s">
+                                <div class="newCurseSaveChanges d-flex justify-content-center">
+                                    <span class="newCurseSaveSp">Сохранить</span>
+                                    <div style='transform: scale(0.7); display: none'><div class="spinner-border" role="status"></div></div>
+                                </div>
+                                <input class="newCurseDate" type='date' value=<%=curses[i].date.replace('.', '-').replace('.', '-') %> >
+                            </div>
+                            <div style='height: 0px'><img class='newCurseClose' src="/imgs/cross.png"></div>
+                        </div>
+                        <div class='newCurseSymbols'>Напечатано символов: <span class='newCurseSymbolsSp'></span>/180</div>
+                    </div>
                     <%}%>
                 </div>
             <%} %>
@@ -58,7 +74,7 @@
                                     <span class="newCurseSaveSp">Сохранить</span>
                                     <div style='transform: scale(0.7); display: none'><div class="spinner-border" role="status"></div></div>
                                 </div>
-                                <input class="newCurseDate" type='date'/>
+                                <input class="newCurseDate" type='date'>
                             </div>
                         </div>
                         <img src="/imgs/plus.png" alt="plus" class="cursePlus">

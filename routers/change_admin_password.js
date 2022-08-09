@@ -11,6 +11,7 @@ async function changeAdminPassword(req, res){
     const token = req.cookies.token
     const login = jwt.verify(req.cookies.token, process.env.SECRET_KEY).login
     if(password1 != password2) return res.status(410).send('Пароли не совпадают')
+    else if(login != 'admin') return res.status(410).send('У вас недостаточно прав для смены пароля')
     const newToken = jwt.sign({login: login, num: uid(10)}, process.env.SECRET_KEY)
     User.updateOne({login: login}, {password: base64.encode(password1), token: newToken}, (err, result)=>{
         cache.set('token:' + login, newToken)

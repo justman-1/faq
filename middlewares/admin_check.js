@@ -12,6 +12,7 @@ async function adminCheck(req, res, next){
             console.log(err)
             return res.status(411).send('Вы не админ.')
         }
+        req.login = login
         const cacheToken = cache.get('token:' + login)
         if(cacheToken){
             if(req.cookies.token != cacheToken){
@@ -23,7 +24,7 @@ async function adminCheck(req, res, next){
         else{
             const admin = await User.findOne({login: login})
             cache.set('token:' + login , admin.token)
-            if(admin.token != req.cookies.token){
+            if(!admin || admin.token != req.cookies.token){
                 res.clearCookie('token')
                 return res.status(411).send('Вы не админ.')
             }

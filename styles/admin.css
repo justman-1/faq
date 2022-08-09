@@ -30,6 +30,7 @@
     opacity: 0.25;
     margin: 13px 375px;
     cursor: pointer;
+    transition: all 0.5s ease;
 }
 .adminUserBlNewFilters{
     width: 100%;
@@ -79,11 +80,8 @@
     height: 100%;
     text-align: center;
     width: 259px;
-    border-right: 1px solid #DBDBDB;
     font-weight: 600;
-}
-.adminUserBlFiltersLogin:last-child{
-    border-right: 0px solid #DBDBDB;
+    display: flex;
 }
 .adminUserBl{
     width: 100%;
@@ -92,4 +90,38 @@
     border-right: 1px solid #DBDBDB;
     border-left: 1px solid #DBDBDB;
     display: flex;
+}
+.adminUserBlLogin{
+    padding: 18px 0px;
+    height: 100%;
+    text-align: center;
+    width: 259px;
+    border-right: 1px solid #DBDBDB;
+}
+.adminUserBlLogin:first-child{
+    font-weight: 600;
+}
+.adminUserBlLogin:last-child{
+    border-right: 0px solid #DBDBDB;
+}
+.adminUserBlDelete{
+    width: 35px;
+    height: 35px;
+    margin: 14px 15px 14px 0px;
+    cursor: pointer;
+}
+.adminUserBlChange{
+    width: 35px;
+    height: 35px;
+    margin: 14px 0px;
+    cursor: pointer;
+}
+.adminUserBlId{
+    display: none;
+}
+.adminUserBlCrown{
+    position: absolute;
+    width: 25px;
+    margin-left: 117px;
+    margin-top: -2px;
 }

@@ -116,7 +116,11 @@ $('.newCurseSave').on('click', (e)=>{
                     }
                 },
                 error: (res)=>{
-                    if(res.status == 410) alert(res.responseText)
+                    if(res.status == 410){
+                        $(e.target.children[0]).css({ 'display': 'block' })
+                        $(e.target.children[1]).css({ 'display': 'none' })
+                        alert(res.responseText)
+                    }
                     else if(res.status == 411){
                         localStorage.removeItem('token')
                         document.cookie = "token=none; max-age=0"
@@ -127,6 +131,7 @@ $('.newCurseSave').on('click', (e)=>{
     }
 })
 
+//delete curse
 $('.curseDelete').click(e=>{
     const response = window.confirm('Вы точно хотите безвозвратно удалить эту карту?')
     if(response){
@@ -190,5 +195,78 @@ $('.curseDelete').click(e=>{
                 }
             }
         })
+    }
+})
+
+//open to change
+$('.curseChange').click(e=>{
+    for(let i = 0; i < 4; i++ ){
+        $(e.target.parentNode.parentNode.children[i]).css({ 'display': 'none' })
+    }
+    $(e.target.parentNode.parentNode.children[5].children[0]).css({ 'display': 'block' })
+    $(e.target.parentNode.parentNode.children[5].children[1]).css({ 'display': 'block' })
+    let text = $(e.target.parentNode.parentNode.children[5].children[0].children)[0].textContent
+    let date = $(e.target.parentNode.parentNode.children[5].children[0].children[1].children)[1].value
+    $(e.target.parentNode.parentNode.children[5].children[0].children)[0].innerHTML = text
+    $(e.target.parentNode.parentNode.children[5].children[0].children[1].children)[1].value = date
+    let length = $(e.target.parentNode.parentNode.children[5].children[0].children)[0].innerHTML.length
+    $(e.target.parentNode.parentNode.children[5].children[1].children)[0].innerHTML = length
+})
+
+//close to change
+$('.newCurseClose').click(e=>{
+    for(let i = 0; i < 4; i++ ){
+        if(i != 0){ $(e.target.parentNode.parentNode.parentNode.parentNode.children[i]).css({ 'display': 'block' }) }
+    }
+    $(e.target.parentNode.parentNode.parentNode.parentNode.children[5].children[0]).css({ 'display': 'none' })
+    $(e.target.parentNode.parentNode.parentNode.parentNode.children[5].children[1]).css({ 'display': 'none' })
+})
+
+//save changes
+$('.newCurseSaveChanges').click(e=>{
+    if($(e.target).attr('class') == 'newCurseSaveSp') e.target = e.target.parentNode
+    else if($(e.target).attr('class') != 'newCurseSaveChanges d-flex justify-content-center') return 0
+    if($(e.target.children[0]).css('display') != 'none'){
+        $(e.target.children[0]).css({ 'display': 'none' })
+        $(e.target.children[1]).css({ 'display': 'block' })
+        const text = e.target.parentNode.parentNode.children[0].innerHTML
+        const date = e.target.parentNode.children[1].value.replace(/-/g, '.')
+        const id = e.target.parentNode.parentNode.parentNode.parentNode.children[0].innerHTML
+        if(text.replace(/ /g,'') == '' || date == ''){
+            alert('Заполните все поля(текст карты, дата)')
+            $(e.target.children[0]).css({ 'display': 'block' })
+            $(e.target.children[1]).css({ 'display': 'none' })
+        }
+        else{
+            $.ajax({
+                url: '/changeCurse',
+                method: 'post',
+                data: { text: text, date1: date, id: id},
+                success: (res)=>{
+                    if(res.text){
+                        $(e.target.children[0]).css({ 'display': 'block' })
+                        $(e.target.children[1]).css({ 'display': 'none' })
+                        $(e.target.parentNode.parentNode.parentNode.parentNode.children)[1].innerHTML = res.text
+                        $(e.target.parentNode.parentNode.parentNode.parentNode.children)[2].value = res.date
+                        for(let i = 0; i < 4; i++ ){
+                            if(i != 0){ $(e.target.parentNode.parentNode.parentNode.parentNode.children[i]).css({ 'display': 'block' }) }
+                        }
+                        $(e.target.parentNode.parentNode.parentNode.parentNode.children[5].children[0]).css({ 'display': 'none' })
+                        $(e.target.parentNode.parentNode.parentNode.parentNode.children[5].children[1]).css({ 'display': 'none' })
+                    }
+                },
+                error: (res)=>{
+                    if(res.status == 410) {
+                        alert(res.responseText)
+                        $(e.target.children[0]).css({ 'display': 'block' })
+                        $(e.target.children[1]).css({ 'display': 'none' })
+                    }
+                    else if(res.status == 411){
+                        localStorage.removeItem('token')
+                        document.cookie = "token=none; max-age=0"
+                    }
+                }
+            })
+        }
     }
 })

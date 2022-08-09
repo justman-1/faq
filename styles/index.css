@@ -141,8 +141,9 @@ body{
     margin-top: 10px;
     font-size: 16px;
     padding: 0px 20px;
-    height: 170px;
+    height: 162px;
     line-height: 20px;
+    overflow: hidden;
     word-break: break-word;
 }
 .curseDate{
@@ -202,10 +203,11 @@ body{
     font-size: 16px;
     padding: 0px 20px;
     height: 170px;
-    max-height: 170px;
+    max-height: 162px;
     border: 0px solid black;
     overflow: hidden;
     word-break: break-word;
+    line-height: 20px;
 }
 .newCurseText img{
     display: none;
@@ -230,6 +232,22 @@ body{
     height: 30px;
     width: 100px;
     text-align: center;
+    cursor: pointer;
+}
+.newCurseSaveChanges{
+    margin-left: 10px;
+    border: 1px solid black;
+    border-radius: 4px;
+    height: 30px;
+    width: 100px;
+    text-align: center;
+    cursor: pointer;
+}
+.newCurseClose{
+    position: relative;
+    width: 14px;
+    top: -210px;
+    left: 5px;
     cursor: pointer;
 }
 

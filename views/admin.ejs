@@ -22,22 +22,35 @@
                 <div class='adminUserBlFiltersLogin'>Действия</div>
             </div>
             <div class='adminUserBlNewFilters'>
-                <textarea class='adminUserBlFiltersNewLogin' contenteditable="true" maxlength="16">Логин</textarea>
-                <textarea class='adminUserBlFiltersNewLogin' contenteditable="true" maxlength="15" type="password">Пароль</textarea>
+                <textarea class='adminUserBlFiltersNewLogin' contenteditable="true" maxlength="16" placeholder="Логин(до 16 символов)"></textarea>
+                <textarea class='adminUserBlFiltersNewLogin' contenteditable="true" maxlength="15" type="password" placeholder="Пароль(до 15 символов)"></textarea>
                 <div class='adminUserBlFiltersNewLogin'>
                     <input class="createAdminBut" type="button" value="Создать админа">
+                    <div class="spinner-border" style="display: none" role="status"></div>
                 </div>
             </div>
-            <div class="adminUserBl">
-                <div class='adminUserBlFiltersLogin'>r</div>
-                <div class='adminUserBlFiltersLogin'>r</div>
-                <div class='adminUserBlFiltersLogin d-flex'>r</div>
-            </div>
-            <div class="adminUserBl">
-                
-            </div>
-            <div class="adminUserBl">
-                
+            <div class="adminContUsers">
+                <% for(let i = 0; i < admins.length; i++ ){
+                    if(admins[i].login != 'admin'){%>
+                        <div class="adminUserBl">
+                            <div class="adminUserBlId"><%=admins[i]._id %></div>
+                            <div class='adminUserBlLogin'><%=admins[i].login %></div>
+                            <div class='adminUserBlLogin'><%=admins[i].password %></div>
+                            <div class='adminUserBlFiltersLogin justify-content-center'>
+                                <img src="/imgs/delete.png" class="adminUserBlDelete">
+                                <img src="/imgs/pencil.png" class="adminUserBlChange">
+                                <div class="spinner-border" style="display: none" role="status"></div>
+                            </div>
+                            <textarea class='adminUserBlFiltersNewLogin' style='display: none' contenteditable="true" maxlength="16" placeholder="Логин(до 16 символов)"><%=admins[i].login %></textarea>
+                            <textarea class='adminUserBlFiltersNewLogin' style='display: none' contenteditable="true" maxlength="15" type="password" placeholder="Пароль(до 15 символов)"><%=admins[i].password %></textarea>
+                            <div class='adminUserBlFiltersNewLogin' style='display: none'>
+                                <input class="saveAdminBut" type="button" value="Сохранить">
+                                <input class="dontCreateAdminBut" type="button" value="Не сохранять">
+                                <div class="spinner-border" style="display: none" role="status"></div>
+                            </div>
+                        </div>
+                    <%}
+                } %> 
             </div>
         </div>
         <%}else{%>

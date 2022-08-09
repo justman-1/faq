@@ -12,6 +12,7 @@ let connectToMongoDb = async () => {
 	})
 }
 connectToMongoDb()
+//mongoose.connect("mongodb://localhost:27017/FAQ")
 
 const Schema = mongoose.Schema
 const userScheme = new Schema({
@@ -32,7 +33,7 @@ function checkAdmin(){
     User.findOne({login: 'admin'}, (err, data)=>{
         if(err) return console.log(err)
         if(!data || data == {}){
-            User.create({login: 'admin', password: base64.encode(password)}, (err, res)=>{
+            User.create({login: 'admin', password: base64.encode(process.env.ADMIN_PASSWORD)}, (err, res)=>{
                 console.log('admin account was created.')
             })
         }
