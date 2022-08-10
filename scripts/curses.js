@@ -271,3 +271,29 @@ $('.newCurseSaveChanges').click(e=>{
         }
     }
 })
+
+$('.showOtherCurses').click(e=>{
+    $('.showOtherCurses').css({ 'display': 'none'})
+    $('.showOtherCursesLoading').css({ 'display': 'flex'})
+    $.ajax({
+        url: '/loadOtherCurses',
+        method: 'get',
+        success: (res)=>{
+            if(res.length){
+                for(let i = 0; i< res.length; i++){
+                    $('.cont').append(`
+                <div class="curse">
+                    <div class="curseId">${res[i]._id}</div>
+                    <div class="curseText">${res[i].text}</div>
+                    <div class="curseDate">${res[i].date}</div>
+                </div>
+                `)
+                }
+                $('.showOtherCursesLoading').css({ 'display': 'none'})
+            }
+        },
+        error: (res)=>{
+            console.log(res)
+        }
+    })
+})

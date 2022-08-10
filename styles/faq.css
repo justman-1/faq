@@ -1,0 +1,103 @@
+.contFaq{
+    width: 1000px; 
+    margin: 30px 0px 30px 50%;
+    position: relative;
+    left: -513px;
+    display: grid;
+    grid-template-columns: 320px 320px 320px;
+    column-gap: 35px;
+    transition: all 0.5s ease;
+    animation: openPage  0.5s 1 ease-in-out;
+}
+.searchQ{
+    width: 600px;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid #DBDBDB;
+    margin-left: 50%;
+    position: relative;
+    top: 30px;
+    left: -300px;
+    font-size: 19px;
+    padding-left: 20px;
+    padding-bottom: 5px;
+    margin-bottom: 40px;
+}
+.question{
+    margin-top: 20px;
+    width: 310px;
+    border: 2px solid #DBDBDB;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.questionName{
+    width: 80%;
+    margin-left: 10%;
+    font-size: 20px;
+    font-weight: 600;
+    word-break: break-word;
+    overflow: hidden;
+}
+.questionText{
+    font-size: 9px;
+    width: 80%;
+    margin-left: 10%;
+    word-break: break-word;
+    overflow: hidden;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.newQ{
+    margin-top: 40px;
+    width: 310px;
+    height: 220px;
+    border: 2px solid #DBDBDB;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-left: 50%;
+    position: relative;
+    left: -155px;
+    margin-bottom: 50px;
+}
+.qPlus{
+    width: 60px;
+    opacity: 0.25;
+    margin: 70px 120px;
+    cursor: pointer;
+}
+.questionId{
+    display: none;
+}
+.qName{
+    display: none;
+    font-size: 20px;
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 10px;
+    min-height: 100px;
+    resize: none;
+    word-break: break-word;
+    overflow: hidden;
+}
+.qText{
+    display: none;
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 3px;
+    min-height: 300px;
+    resize: none;
+    word-break: break-word;
+    overflow: hidden;
+}
+.qSend{
+    margin-top: 10px;
+    display: none;
+}
+.qLoading{
+    display: none;
+}
+.contUndefined{
+    font-size: 25px;
+    text-align: center;
+    width: 305%;
+}

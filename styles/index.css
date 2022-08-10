@@ -118,7 +118,7 @@ body{
 
 .cont{
     width: 1000px; 
-    margin: 30px 0px 50px 50%;
+    margin: 30px 0px 30px 50%;
     position: relative;
     left: -513px;
     display: grid;
@@ -248,6 +248,19 @@ body{
     width: 14px;
     top: -205px;
     left: 5px;
+    cursor: pointer;
+}
+.showOtherCurses{
+    width: 300px;
+    position: relative;
+    margin-left: 50%;
+    left: -150px;
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 80px;
+    border-radius: 5px;
+    border: 1px solid black;
+    color: black;
     cursor: pointer;
 }
 

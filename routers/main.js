@@ -1,5 +1,6 @@
 const User = require('../mongodb/index.js').User
 const Curse = require('../mongodb/index.js').Curse
+const Question = require('../mongodb/index.js').Question
 const cache = require('../cache/index.js')
 const jwt = require('jsonwebtoken')
 
@@ -26,8 +27,9 @@ async function main(req, res){
                 adminIs = false
             }
             else if(!cacheToken){
-                const result = await User.findOne({login: 'admin'})
-                cache.set('token', result.token)
+                const result = await User.findOne({login: login})
+                console.log(1)
+                cache.set('token:', result.token)
                 console.log(result)
                 if(result.token == token){
                     adminIs = true
@@ -39,9 +41,17 @@ async function main(req, res){
             }
         }
     }
-    const curses = await Curse.find({})
+    const curses1 = await Curse.find({})
+    const length = curses1.length
+    const curses = await Curse.find({}).skip((length > 12) ? length - 12 : 0)
+    console.log(curses)
+    let result = []
+    for(let i=curses.length - 1;i>-1;i--){
+        result.push(curses[i])
+    }
     res.render('index', {
-        curses: curses,
+        curses: (adminIs) ? curses1 : result,
+        cursesMore: (length > 12) ? true : false,
         admin: adminIs,
         superAdmin: superAdmin
     })

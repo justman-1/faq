@@ -25,9 +25,14 @@ const curseScheme = new Schema({
     text: String,
     date: String,
 })
+const questionScheme = new Schema({
+    name: String,
+    text: String,
+})
 
 const User = mongoose.model("User", userScheme)
 const Curse = mongoose.model("Curse", curseScheme)
+const Question = mongoose.model("Question", questionScheme)
 
 function checkAdmin(){
     User.findOne({login: 'admin'}, (err, data)=>{
@@ -43,5 +48,6 @@ checkAdmin()
 
 module.exports = {
     User: User,
-    Curse: Curse
+    Curse: Curse,
+    Question: Question
 }
