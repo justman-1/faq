@@ -10,7 +10,6 @@ async function saveCurse(req, res){
     text = textParse(text)
     if(text.replace(/ /g,'') == '' || date.replace(/ /g,'') == '') res.status(410).send('Заполните все поля')
     const result = await Curse.updateOne({_id: id}, { text: text, date: date})
-    console.log(result)
     res.send({ text: text, date: date })
 }
 
