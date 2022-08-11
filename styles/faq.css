@@ -39,7 +39,7 @@
     overflow: hidden;
 }
 .questionText{
-    font-size: 9px;
+    font-size: 15px;
     width: 80%;
     margin-left: 10%;
     word-break: break-word;
@@ -100,4 +100,49 @@
     font-size: 25px;
     text-align: center;
     width: 305%;
+}
+.qDelete{
+    width: 20px;
+    position: relative;
+    top: -28px;
+    left: 5px;
+}
+.qChange{
+    width: 20px;
+    position: relative;
+    top: -55px;
+    left: -20px;
+}
+.questionNameChange{
+    font-size: 20px;
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 10px;
+    min-height: 100px;
+    resize: none;
+    word-break: break-word;
+    overflow: hidden;
+}
+.questionTextChange{
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 3px;
+    min-height: 300px;
+    resize: none;
+    word-break: break-word;
+    overflow: hidden;
+}
+.questionChangeSend{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.questionChangeCross{
+    width: 20px;
+    height: 20px;
+    position: relative;
+    top: 20px;
+    left: -80px;
+    margin-left: 3px;
+    margin-top: -5px;
+    z-index: 2000;
 }

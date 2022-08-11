@@ -45,6 +45,93 @@ $('.qSend').click(e=>{
     })
 })
 
+//delete question
+function addDeleteEvent(){
+    $('.qDelete').click(e=>{
+        const request = window.confirm('Вы действительно хотите безвозвратно удалить эту карту?')
+        if(!request) return false
+        $(e.target.parentNode.children).css({ display: 'none' })
+        e.target.parentNode.parentNode.children[1].innerHTML = 'Удаление...'
+        e.target.parentNode.parentNode.children[2].innerHTML = ''
+        const id = e.target.parentNode.parentNode.children[0].innerHTML
+        console.log(id)
+        $.ajax({
+            url: '/deleteQuestion',
+            method: 'post',
+            data: { id: id },
+            success: (res)=>{
+                if(res == 'ok'){
+                    $(e.target.parentNode.parentNode).remove()
+                }
+            },
+            error: (res)=>{
+                if(res.status == 410){
+                    $(e.target.parentNode.parentNode).remove()
+                }
+                else if(res.status == 411){
+                    localStorage.removeItem('token')
+                    document.cookie = "token=none; max-age=0"
+                }
+            }
+        })
+    })
+}
+
+//change question
+function addChangeEvent(){
+    $('.qChange').click(e=>{
+        let block = e.target.parentNode.parentNode
+        block.children[4].children[0].innerHTML = block.children[1].innerHTML
+        block.children[4].children[1].innerHTML = block.children[2].innerHTML.replace(/<br>/g, '').replace(/•/g, '')
+        for(i=0;i<4;i++){
+            $(block.children[i]).css({ 'display': 'none'})
+        }
+        $(block.children[4]).css({ 'display': 'block'})
+    })
+    $('.questionChangeCross').click(e=>{
+        let block = e.target.parentNode.parentNode.parentNode
+        for(i=1;i<4;i++){
+            $(block.children[i]).css({ 'display': 'block'})
+        }
+        $(block.children[4]).css({ 'display': 'none'})
+    })
+    $('.questionChangeSend').click(e=>{
+        const block = e.target.parentNode.parentNode.parentNode
+        const id = block.children[0].innerHTML
+        const name = block.children[4].children[0].innerHTML
+        const text = block.children[4].children[1].innerHTML
+        if(text.replace(/ /g,'') == '' || name.replace(/ /g,'') == ''){
+            alert('Заполните все поля(вопрос, ответ)')
+        }
+        $(e.target.parentNode.children[0]).css({ 'display': 'none'})
+        $(e.target.parentNode.children[1]).css({ 'display': 'none'})
+        $(e.target.parentNode.children[2]).css({ 'display': 'inline-block'})
+        console.log(text + name)
+        $.ajax({
+            url: '/changeQuestion',
+            method: 'post',
+            data: { text: text, name: name, id: id },
+            success: (res)=>{
+                if(res == 'ok'){
+                    window.location = '/'
+                }
+            },
+            error: (res)=>{
+                if(res.status == 410){
+                    $(e.target.parentNode.children[0]).css({ 'display': 'block'})
+                    $(e.target.parentNode.children[1]).css({ 'display': 'block'})
+                    $(e.target.parentNode.children[2]).css({ 'display': 'none'})
+                    alert(res.responseText)
+                }
+                else if(res.status == 411){
+                    localStorage.removeItem('token')
+                    document.cookie = "token=none; max-age=0"
+                }
+            }
+        })
+    })
+}
+
 //get questions
 function getQuestions(){
     let request = $('.searchQ').val()
@@ -58,7 +145,21 @@ function getQuestions(){
         success: (res)=>{
             $('.contUndefined').css({ 'display': 'none'})
             $('.qLoading').css({ 'display': 'none'})
-            console.log((res.questions.length < 3) ? res.questions.length : 3)
+            const actions = `<div style='height: 0px'>
+            <img class="qDelete" src="/imgs/delete.png">
+            <img class="qChange" src="/imgs/pencil.png">
+            </div>`
+            const changeBl = `
+            <div style='display: none'>
+                <textarea class="questionNameChange" placeholder="Вопрос(до 100 символов)" maxlength="100"></textarea>
+                <textarea class="questionTextChange" maxlength="2000" style='border: 1px solid black'></textarea>
+                <div class="justify-content-center d-flex">
+                    <img class='questionChangeCross' src='/imgs/cross.png'>
+                    <input type="button" value='Сохранить' class='questionChangeSend'>
+                    <div class="spinner-border" role="status" style="display: none; margin-top: 10px;"></div>
+                </div>
+            </div>
+            `
             res.questions.forEach((e, i)=>{
                 let heights = []
                 for(m=0;m<3;m++){
@@ -75,9 +176,12 @@ function getQuestions(){
                     <div class="questionId">${e._id}</div>
                     <div class="questionName">${e.name}</div>
                     <div class="questionText">${e.text}</div>
+                    ${(res.admin) ? actions + changeBl : ''}
                 </div>
                 `)
             })
+            addDeleteEvent()
+            addChangeEvent()
             if(res.questions.length == 0){
                 $('.contUndefined').css({ 'display': 'block'})
             }
@@ -89,6 +193,7 @@ function getQuestions(){
 }
 getQuestions()
 
+//search questions
 $('.searchQ').on('input', e=>{
     $('.qLoading').css({ 'display': 'flex'})
     $('.contFaq').css({ 'opacity': '0.2'})

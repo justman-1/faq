@@ -14,7 +14,9 @@ const addAdmin = require('./add_admin.js')
 const deleteAdmin = require('./delete_admin.js')
 const changeAdmin = require('./change_admin.js')
 const saveQuestion = require('./save_question.js')
+const deleteQuestion = require('./delete_question.js')
 const getQuestions = require('./get_questions.js')
+const changeQuestion = require('./change_question.js')
 
 router.get('/', main)
 router.post('/signin', signin)
@@ -28,6 +30,8 @@ router.post('/addAdmin', checkAdmin, addAdmin)
 router.post('/deleteAdmin', checkAdmin, deleteAdmin)
 router.post('/changeAdmin', checkAdmin, changeAdmin)
 router.post('/saveQuestion', checkAdmin, saveQuestion)
+router.post('/deleteQuestion', checkAdmin, deleteQuestion)
+router.post('/changeQuestion', checkAdmin, changeQuestion)
 router.get('/getQuestions', getQuestions)
 
 module.exports = router
