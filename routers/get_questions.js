@@ -32,7 +32,6 @@ async function getQuestions(req, res){
                 }
                 else{
                     cache.set('token:', result.token)
-                    console.log(result)
                     if(result.token == token){
                         adminIs = true
                     }

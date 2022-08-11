@@ -81,8 +81,8 @@ function addDeleteEvent(){
 function addChangeEvent(){
     $('.qChange').click(e=>{
         let block = e.target.parentNode.parentNode
-        block.children[4].children[0].innerHTML = block.children[1].innerHTML
-        block.children[4].children[1].innerHTML = block.children[2].innerHTML.replace(/<br>/g, '').replace(/•/g, '')
+        block.children[4].children[0].value = block.children[1].innerHTML
+        block.children[4].children[1].value = block.children[2].innerHTML.replace(/<br>/g, '').replace(/•/g, '')
         for(i=0;i<4;i++){
             $(block.children[i]).css({ 'display': 'none'})
         }
@@ -98,15 +98,16 @@ function addChangeEvent(){
     $('.questionChangeSend').click(e=>{
         const block = e.target.parentNode.parentNode.parentNode
         const id = block.children[0].innerHTML
-        const name = block.children[4].children[0].innerHTML
-        const text = block.children[4].children[1].innerHTML
+        const name = block.children[4].children[0].value
+        const text = block.children[4].children[1].value
         if(text.replace(/ /g,'') == '' || name.replace(/ /g,'') == ''){
             alert('Заполните все поля(вопрос, ответ)')
         }
         $(e.target.parentNode.children[0]).css({ 'display': 'none'})
         $(e.target.parentNode.children[1]).css({ 'display': 'none'})
         $(e.target.parentNode.children[2]).css({ 'display': 'inline-block'})
-        console.log(text + name)
+        console.log(text)
+        console.log(name)
         $.ajax({
             url: '/changeQuestion',
             method: 'post',

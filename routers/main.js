@@ -34,7 +34,6 @@ async function main(req, res){
                 }
                 else{
                     cache.set('token:', result.token)
-                    console.log(result)
                     if(result.token == token){
                         adminIs = true
                     }
@@ -49,7 +48,6 @@ async function main(req, res){
     const curses1 = await Curse.find({})
     const length = curses1.length
     const curses = await Curse.find({}).skip((length > 12) ? length - 12 : 0)
-    console.log(curses)
     let result = []
     for(let i=curses.length - 1;i>-1;i--){
         result.push(curses[i])
