@@ -26,13 +26,20 @@ async function getQuestions(req, res){
             }
             else if(!cacheToken){
                 const result = await User.findOne({login: login})
-                cache.set('token:', result.token)
-                if(result.token == token){
-                    adminIs = true
+                if(result == null || result == undefined){
+                    adminIs = false
+                    res.cookie('token', token + 'random')
                 }
                 else{
-                    res.clearCookie('token')
-                    adminIs = false
+                    cache.set('token:', result.token)
+                    console.log(result)
+                    if(result.token == token){
+                        adminIs = true
+                    }
+                    else{
+                        res.clearCookie('token')
+                        adminIs = false
+                    }
                 }
             }
         }
