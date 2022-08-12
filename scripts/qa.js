@@ -87,6 +87,8 @@ function addChangeEvent(){
             $(block.children[i]).css({ 'display': 'none'})
         }
         $(block.children[4]).css({ 'display': 'block'})
+        block.children[4].children[3].children[0].innerHTML = block.children[4].children[1].value.length
+        block.children[4].children[4].children[0].innerHTML = block.children[4].children[0].value.length
     })
     $('.questionChangeCross').click(e=>{
         let block = e.target.parentNode.parentNode.parentNode
@@ -133,6 +135,17 @@ function addChangeEvent(){
     })
 }
 
+//addChangeText event
+function addChangeTextEvent(){
+    $('.questionTextChange').on('input', e=>{
+        e.target.parentNode.children[3].children[0].innerHTML = e.target.value.length
+    })
+    $('.questionNameChange').on('input', e=>{
+        e.target.parentNode.children[4].children[0].innerHTML = e.target.value.length
+    })
+}
+addChangeTextEvent()
+
 //get questions
 function getQuestions(){
     let request = $('.searchQ').val()
@@ -159,6 +172,8 @@ function getQuestions(){
                     <input type="button" value='Сохранить' class='questionChangeSend'>
                     <div class="spinner-border" role="status" style="display: none; margin-top: 10px;"></div>
                 </div>
+                <div class='qSymbols'>Напечатано символов: <span class='qSymbolsSp'>0</span>/2000</div>
+                <div class='qSymbols2'>Напечатано символов: <span class='qSymbolsSp'>0</span>/100</div>
             </div>
             `
             res.questions.forEach((e, i)=>{
@@ -183,6 +198,7 @@ function getQuestions(){
             })
             addDeleteEvent()
             addChangeEvent()
+            addChangeTextEvent()
             if(res.questions.length == 0){
                 $('.contUndefined').css({ 'display': 'block'})
             }
