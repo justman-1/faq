@@ -5,7 +5,7 @@ const bodyParser = require('body-parser')
 const routers = require('./routers/index')
 const cookieParser = require('cookie-parser')
 
-const server = require('http').createServer(app).listen(80)
+const server = require('http').createServer(app).listen(5000)
 
 app.use(cookieParser(process.env.SECRET_KEY))
 app.set("view engine", "ejs")
