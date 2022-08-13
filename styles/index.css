@@ -285,11 +285,13 @@ body{
     .cont{
         margin-left: 50px;
     }
-  }
-
-@media (max-width: 1200px) {
-    .cont{
-        margin-left: 5%;
-        background-color: black;
+    .mainHead{
+        margin-left: 100px;
+    }
+    .signin{
+        right: -550px;
+    }
+    .admin{
+        left: -450px;
     }
 }

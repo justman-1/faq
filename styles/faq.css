@@ -1,7 +1,8 @@
 .contFaq{
     width: 1000px; 
-    margin: auto;
+    margin-left: 50%;
     position: relative;
+    left: -500px;
     display: grid;
     grid-template-columns: 320px 320px 320px;
     column-gap: 35px;
@@ -160,4 +161,16 @@
     top: -495px;
     height: 0px;
     color: #6EE34F;
+}
+
+@media (max-width: 1000px) {
+    .searchQ{
+        left: -250px;
+    }
+    .contFaq{
+        left: -450px;
+    }
+    .newQ{
+        left: -95px;
+    }
 }
