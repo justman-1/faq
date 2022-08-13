@@ -286,3 +286,10 @@ body{
         margin-left: 50px;
     }
   }
+
+@media (max-width: 1200px) {
+    .cont{
+        margin-left: 5%;
+        background-color: black;
+    }
+}
