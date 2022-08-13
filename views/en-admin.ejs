@@ -10,22 +10,22 @@
     </head>
     <body>
         <% if(permission){%>
-        <a href="/"><img class="goback" src="/imgs/back.png"></a>
-        <div class='mainHead'>Админ-панель</div>
+        <a href="/en"><img class="goback" src="/imgs/back.png"></a>
+        <div class='mainHead'>Admin panel</div>
         <div class="addAdmin">
-            <img class="addAdminImg" src="/imgs/plus.png" alt="Add admin">
+            <img class="addAdminImg" src="/imgs/plus.png" alt="Add new admin">
         </div>
         <div class='adminCont'>
             <div class='adminUserBlFilters'>
-                <div class='adminUserBlFiltersLogin' style="display: block">Логин</div>
-                <div class='adminUserBlFiltersLogin' style="display: block">Пароль</div>
-                <div class='adminUserBlFiltersLogin' style="display: block">Действия</div>
+                <div class='adminUserBlFiltersLogin' style="display: block">Login</div>
+                <div class='adminUserBlFiltersLogin' style="display: block">Password</div>
+                <div class='adminUserBlFiltersLogin' style="display: block">Actions</div>
             </div>
             <div class='adminUserBlNewFilters'>
-                <textarea class='adminUserBlFiltersNewLogin' contenteditable="true" maxlength="16" placeholder="Логин(до 16 символов)"></textarea>
-                <textarea class='adminUserBlFiltersNewLogin' contenteditable="true" maxlength="15" type="password" placeholder="Пароль(до 15 символов)"></textarea>
+                <textarea class='adminUserBlFiltersNewLogin' contenteditable="true" maxlength="16" placeholder="Login(up to 16 characters)"></textarea>
+                <textarea class='adminUserBlFiltersNewLogin' contenteditable="true" maxlength="15" type="password" placeholder="Password(up to 15 characters)"></textarea>
                 <div class='adminUserBlFiltersNewLogin'>
-                    <input class="createAdminBut" type="button" value="Создать админа">
+                    <input class="createAdminBut" type="button" value="Create an admin">
                     <div class="spinner-border" style="display: none" role="status"></div>
                 </div>
             </div>
@@ -41,11 +41,11 @@
                                 <img src="/imgs/pencil.png" class="adminUserBlChange">
                                 <div class="spinner-border" style="display: none" role="status"></div>
                             </div>
-                            <textarea class='adminUserBlFiltersNewLogin' style='display: none' contenteditable="true" maxlength="16" placeholder="Логин(до 16 символов)"><%=admins[i].login %></textarea>
-                            <textarea class='adminUserBlFiltersNewLogin' style='display: none' contenteditable="true" maxlength="15" type="password" placeholder="Пароль(до 15 символов)"><%=admins[i].password %></textarea>
+                            <textarea class='adminUserBlFiltersNewLogin' style='display: none' contenteditable="true" maxlength="16" placeholder="Login(up to 16 characters)"><%=admins[i].login %></textarea>
+                            <textarea class='adminUserBlFiltersNewLogin' style='display: none' contenteditable="true" maxlength="15" type="password" placeholder="Password(up to 15 characters)"><%=admins[i].password %></textarea>
                             <div class='adminUserBlFiltersNewLogin' style='display: none'>
-                                <input class="saveAdminBut" type="button" value="Сохранить">
-                                <input class="dontCreateAdminBut" type="button" value="Не сохранять">
+                                <input class="saveAdminBut" type="button" value="Save">
+                                <input class="dontCreateAdminBut" type="button" value="Don't save">
                                 <div class="spinner-border" style="display: none" role="status"></div>
                             </div>
                         </div>
@@ -54,12 +54,12 @@
             </div>
         </div>
         <%}else{%>
-        <div class="noPermission">У вас недостаточно прав.</div>
-        <div class='noPermission'><a href="/">Вернуться на главную страницу</a></div>
+        <div class="noPermission">You don't have enough rights.</div>
+        <div class='noPermission'><a href="/en">Go back to the main page</a></div>
         <%}%>
     </body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="/scripts/admin.js"></script>
-    <script src="/scripts/curses.js"></script>
-    <script src="/scripts/qa.js"></script>
+    <script src="/scripts/en-admin.js"></script>
+    <script src="/scripts/en-curses.js"></script>
+    <script src="/scripts/en-qa.js"></script>
 </html>
