@@ -281,7 +281,7 @@ body{
     to{ opacity: 0.2 }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1050px) {
     .cont{
         margin-left: 50px;
     }
@@ -293,5 +293,8 @@ body{
     }
     .admin{
         left: -450px;
+    }
+    .showOtherCurses{
+        left: -90px;
     }
 }
