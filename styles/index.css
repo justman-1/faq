@@ -261,6 +261,9 @@ body{
     color: black;
     cursor: pointer;
 }
+.showOtherCursesLoading{
+    margin-top: 30px;
+}
 
 @keyframes openPage {
     from{
@@ -296,5 +299,8 @@ body{
     }
     .showOtherCurses{
         left: -90px;
+    }
+    .showOtherCursesLoading{
+        margin-left: 50px;
     }
 }
