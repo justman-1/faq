@@ -17,7 +17,6 @@ const saveQuestion = require('./save_question.js')
 const deleteQuestion = require('./delete_question.js')
 const getQuestions = require('./get_questions.js')
 const changeQuestion = require('./change_question.js')
-const enRouters = require('../en-routers/index.js')
 
 router.get('/', main)
 router.post('/signin', signin)
@@ -34,6 +33,5 @@ router.post('/saveQuestion', checkAdmin, saveQuestion)
 router.post('/deleteQuestion', checkAdmin, deleteQuestion)
 router.post('/changeQuestion', checkAdmin, changeQuestion)
 router.get('/getQuestions', getQuestions)
-router.use('/en', enRouters)
 
 module.exports = router
