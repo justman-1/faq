@@ -53,7 +53,7 @@ $(".signinBlCross").on('click', e=>{
 $(".signout").on('click', ()=>{
     document.cookie = "token=none; max-age=0"
     localStorage.removeItem('token')
-    window.location = '/'
+    window.location = '/en'
 })
 
 //open change password
