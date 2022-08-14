@@ -7,6 +7,8 @@ $('.newQ').click(e=>{
     $(e.target.children[1]).css({ 'display': 'block'})
     $(e.target.children[2]).css({ 'display': 'block'})
     $(e.target.children[3].children[0]).css({ 'display': 'inline-block'})
+    $(e.target.children[4]).css({ 'display': 'block'})
+    $(e.target.children[5]).css({ 'display': 'block'})
 })
 
 //save question
@@ -222,3 +224,14 @@ $('.searchQ').on('input', e=>{
         }
     }, 700)
 })
+
+
+function changeTextSymbols(){
+    $('.qText').on('input', e=>{
+        e.target.parentNode.children[4].children[0].innerHTML = e.target.value.length
+    })
+    $('.qName').on('input', e=>{
+        e.target.parentNode.children[5].children[0].innerHTML = e.target.value.length
+    })
+}
+changeTextSymbols()

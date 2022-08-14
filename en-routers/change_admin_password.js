@@ -1,4 +1,4 @@
-const User = require('../mongodb/index.js').User
+const User = require('../en-mongodb/index.js').User
 const cache = require('../cache/index.js')
 const {uid} = require('uid')
 const base64 = require('base-64')

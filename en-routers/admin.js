@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken')
-const User = require('../mongodb/index.js').User
+const User = require('../en-mongodb/index.js').User
 const base64 = require('base-64')
 
 function adminBreak(res){

@@ -1,5 +1,5 @@
-const User = require('../mongodb/index.js').User
-const Question = require('../mongodb/index.js').Question
+const User = require('../en-mongodb/index.js').User
+const Question = require('../en-mongodb/index.js').Question
 const cache = require('../cache/index.js')
 const textParse = require('../middlewares/parseCurseText.js')
 

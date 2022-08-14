@@ -55,8 +55,18 @@ async function getQuestions(req, res){
                 regStr = regStr + e
             }
         })
-        const reg = new RegExp(regStr)
-        const result = await Question.find({name: reg})
+        const reg = new RegExp(regStr, 'gi')
+        const result1 = await Question.find({name: reg})
+        const result2 = await Question.find({text: reg})
+        let result3 = result1.concat(result2)
+        let result = []
+        for(i=0;i<result3.length;i++){
+            let res2 = false
+            for(m=0;m<result.length;m++){
+                if(base64.encode(result3[m]._id) == base64.encode(result3[i]._id)) res2 = true
+            }
+            if(!res2) result.push(result3[i])
+        }
         res.send({questions: result, admin: adminIs})
     }
     else{

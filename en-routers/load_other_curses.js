@@ -1,4 +1,4 @@
-const Curse = require('../mongodb/index.js').Curse
+const Curse = require('../en-mongodb/index.js').Curse
 const cache = require('../cache/index.js')
 
 async function loadOtherCurses(req, res){

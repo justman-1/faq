@@ -2,9 +2,6 @@ const User = require('../mongodb/index.js').User
 const cache = require('../cache/index.js')
 const base64 = require('base-64')
 const jwt = require('jsonwebtoken')
-User.findOne({login: 'admin'}, (e, result)=>{
-    console.log(base64.decode(result.password))
-})
 
 
 async function addAdmin(req, res){

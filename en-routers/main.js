@@ -1,6 +1,6 @@
-const User = require('../mongodb/index.js').User
-const Curse = require('../mongodb/index.js').Curse
-const Question = require('../mongodb/index.js').Question
+const User = require('../en-mongodb/index.js').User
+const Curse = require('../en-mongodb/index.js').Curse
+const Question = require('../en-mongodb/index.js').Question
 const cache = require('../cache/index.js')
 const jwt = require('jsonwebtoken')
 
