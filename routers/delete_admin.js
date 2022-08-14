@@ -7,7 +7,6 @@ const jwt = require('jsonwebtoken')
 async function addAdmin(req, res){
     const id = req.body.id
     if(req.login != 'admin') return res.status(410).send('У вас недостаточно прав.')
-    find
     User.deleteOne({_id: id}, (err, result)=>{
         if(result){
             let cacheToken = cache.get('token:' + result.login)
