@@ -3,7 +3,6 @@ const cache = require('../cache/index.js')
 const base64 = require('base-64')
 const jwt = require('jsonwebtoken')
 
-
 async function addAdmin(req, res){
     console.log(req.login)
     if(req.login != 'admin') return res.status(410).send(`You don't have enough rights.`)
