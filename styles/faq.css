@@ -28,7 +28,6 @@
     width: 310px;
     border: 2px solid #DBDBDB;
     border-radius: 10px;
-    cursor: pointer;
 }
 .questionName{
     width: 80%;
@@ -46,6 +45,15 @@
     overflow: hidden;
     margin-bottom: 10px;
     margin-top: 10px;
+}
+.questionImg{
+    width: 80%;
+    margin-left: 10%;
+    border-radius: 5px;
+    position: relative;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    background-color: #DBDBDB;
 }
 .newQ{
     margin-top: 40px;
@@ -92,6 +100,8 @@
 .qSend{
     margin-top: 10px;
     display: none;
+    position: relative;
+    top: 150px;
 }
 .qLoading{
     display: none;
@@ -106,12 +116,14 @@
     position: relative;
     top: -28px;
     left: 5px;
+    cursor: pointer;
 }
 .qChange{
     width: 20px;
     position: relative;
     top: -55px;
     left: -20px;
+    cursor: pointer;
 }
 .questionNameChange{
     font-size: 20px;
@@ -145,6 +157,7 @@
     margin-left: 3px;
     margin-top: -5px;
     z-index: 2000;
+    cursor: pointer;
 }
 .qSymbols{
     font-size: 11px;
@@ -161,6 +174,43 @@
     top: -495px;
     height: 0px;
     color: #6EE34F;
+}
+.addImageLable{
+    width: 90%;
+    margin-left: 5%;
+    border: 2px solid #DBDBDB;
+    border-radius: 5px;
+    position: relative;
+    top: -30px;
+    margin-bottom: 30px;
+}
+.addImageInp{
+    display: none;
+}
+.addImageImg{
+    width: 30%;
+    margin-left: 35%;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    opacity: 0.2;
+}
+.addImageInpChange{
+    display: none;
+}
+.addImageImgChange{
+    width: 30%;
+    margin-left: 35%;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    opacity: 0.2;
+}
+.mainHeadFaq{
+    color: black;
+    text-decoration: none;
+}
+.mainHeadFaq:hover{
+    color: black;
+    text-decoration: underline;
 }
 
 @media (max-width: 1000px) {

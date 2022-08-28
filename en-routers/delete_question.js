@@ -2,14 +2,17 @@ const User = require('../en-mongodb/index.js').User
 const Question = require('../en-mongodb/index.js').Question
 const cache = require('../cache/index.js')
 const textParse = require('../middlewares/parseCurseText.js')
+const GoogleDrive = require('../google-drive/index.js')
 
-async function saveCurse(req, res){
+async function deleteQuestion(req, res){
     const id = req.body.id
-    Question.deleteOne({_id: id}, (err, result)=>{
+    const q = await Question.findOne({_id: id})
+    Question.deleteOne({_id: id}, async (err, result)=>{
+        if(q.image) await GoogleDrive.delete(id)
         if(err) return console.log(err)
         res.send('ok')
     })
 }
 
 
-module.exports = saveCurse
+module.exports = deleteQuestion

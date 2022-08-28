@@ -90,7 +90,7 @@
                 <div class="spinner-border" role="status"></div>
             </div>
         <%}%>
-        <div class="mainHead">Часто задаваемые вопросы</div>
+        <a href="/faq" class="mainHeadFaq"><div class="mainHead">Часто задаваемые вопросы</div></a>
         <input type="text" class="searchQ" placeholder="Например: какой курс мне выбрать?" maxlength="150">
         <div class="justify-content-center qLoading" style='display: none; margin-bottom: 80px'>
             <div class="spinner-border" role="status"></div>
@@ -112,6 +112,10 @@
                 </div>
                 <div class='qSymbols' style="top: -43px; display: none">Напечатано слов: <span class='qSymbolsSp'>0</span>/2000</div>
                 <div class='qSymbols2' style="top: -457px; display: none">Напечатано слов: <span class='qSymbolsSp'>0</span>/100</div>
+                <label class="addImageLable" style="display: none">
+                    <input type="file" class="addImageInp">
+                    <img src="/imgs/image.png" class="addImageImg">
+                </label>
             </div>
         <%}%>
     </body>

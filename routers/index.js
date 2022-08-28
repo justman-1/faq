@@ -17,6 +17,8 @@ const saveQuestion = require('./save_question.js')
 const deleteQuestion = require('./delete_question.js')
 const getQuestions = require('./get_questions.js')
 const changeQuestion = require('./change_question.js')
+const faqPage = require('./faq_page.js')
+const getImage = require('./get_image.js')
 
 router.get('/', main)
 router.post('/signin', signin)
@@ -33,5 +35,7 @@ router.post('/saveQuestion', checkAdmin, saveQuestion)
 router.post('/deleteQuestion', checkAdmin, deleteQuestion)
 router.post('/changeQuestion', checkAdmin, changeQuestion)
 router.get('/getQuestions', getQuestions)
+router.get('/faq', faqPage)
+router.get('/getImage/:id', getImage)
 
 module.exports = router

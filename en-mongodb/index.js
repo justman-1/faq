@@ -28,6 +28,7 @@ const curseScheme = new Schema({
 const questionScheme = new Schema({
     name: String,
     text: String,
+    image: Object,//{ id: String, height: String }
 })
 
 const User = mongoose.model("User-en", userScheme)
